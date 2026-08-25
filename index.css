@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #eef7f0;
+  color: #0f1f12;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #a7f3d0; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #6ee7b7; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.4; transform:scale(.85); } }
+@keyframes slideIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes shimmer { 0% { background-position:-400px 0; } 100% { background-position:400px 0; } }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes countUp { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+
+.anim-in { animation: slideIn .25s ease both; }
+.anim-fade { animation: fadeIn .3s ease both; }
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.04);
+}
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; border-radius: 9px;
+  font-size: 13.5px; font-weight: 500;
+  color: #a7f3d0; cursor: pointer;
+  transition: background .15s, color .15s;
+  border: none; background: transparent; width: 100%; text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+.nav-item:hover { background: rgba(255,255,255,.09); color: #fff; }
+.nav-item.active { background: rgba(255,255,255,.14); color: #fff; font-weight: 600; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  border: none; border-radius: 8px; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-weight: 600;
+  font-size: 12.5px; padding: 8px 14px; transition: all .15s; white-space: nowrap;
+}
+.btn-green { background: #16a34a; color: #fff; }
+.btn-green:hover { background: #15803d; }
+.btn-outline { background: #fff; color: #166534; border: 1.5px solid #bbf7d0; }
+.btn-outline:hover { background: #f0fdf4; }
+.btn-red { background: #dc2626; color: #fff; }
+.btn-red:hover { background: #b91c1c; }
+.btn-ghost { background: transparent; color: #16a34a; border: 1.5px solid #d1fae5; font-size: 11.5px; padding: 5px 10px; }
+.btn-ghost:hover { background: #f0fdf4; }
+
+.badge { display: inline-flex; align-items: center; border-radius: 5px; padding: 2px 7px; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; }
+.badge-red { background: #fee2e2; color: #991b1b; }
+.badge-amber { background: #fef3c7; color: #92400e; }
+.badge-green { background: #dcfce7; color: #166534; }
+.badge-blue { background: #dbeafe; color: #1e40af; }
+
+.risk-bar-bg { background: #f1f5f9; border-radius: 99px; overflow: hidden; }
+.risk-bar { height: 100%; border-radius: 99px; transition: width .6s cubic-bezier(.4,0,.2,1); }
+
+input[type=range] {
+  -webkit-appearance: none; height: 5px;
+  background: #d1fae5; border-radius: 99px; outline: none; cursor: pointer; width: 100%;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 17px; height: 17px;
+  background: #16a34a; border-radius: 50%; cursor: pointer;
+  border: 2.5px solid #fff; box-shadow: 0 1px 4px rgba(22,163,74,.35);
+}
+
+table { border-collapse: collapse; width: 100%; }
+th { text-align: left; font-size: 11px; font-weight: 700; color: #6b7280; padding: 0 12px 10px; letter-spacing: .06em; text-transform: uppercase; }
+td { padding: 11px 12px; font-size: 13px; color: #374151; border-top: 1px solid #f3f4f6; }
+tr:first-child td { border-top: none; }
+
+.tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(22,163,74,.1); color: #166534;
+  border-radius: 99px; padding: 3px 10px; font-size: 11px; font-weight: 600;
+}
